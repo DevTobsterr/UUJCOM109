@@ -1,0 +1,119 @@
+<!DOCTYPE html> 
+
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="description" content="About Toby Killen">
+<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="author" content="Toby Killen">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<head> 
+    <!-- EXTERNAL CSS SHEET -->
+<link rel="stylesheet" type="text/css" href="..\css\contact.css">  
+<title>TOBY KILLEN | Contact</title>
+<!-- EXTERNAL JS FOR VALIDATION -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="..\js\formcheck.js" async></script>
+</head>
+
+
+<!-- THIS IS THE CONTENT OF THE WEBPAGE -->
+<body> 
+<!-- NAV BAR -->
+<div class="navbar" id="navbar">
+<ul>
+<li><a href="..\html\home.html">Home</a></li>
+<li><a href="..\html\aboutme.html">About</a></li>
+<li><a href="..\html\contact.html">Contact Me</a></li>
+<li><a href="..\media\features.pdf" download>Key Features</a></li>
+</ul>
+</div>
+
+<!-- END OF NAVBAR -->
+
+<!-- TOP BANNER OF WEBPAGE -->
+<div class="topbar" id="topbar">
+<img src="..\image\index1.jpg" class="logo" id="logo" alt="">
+<h1 class="bannertxt" id="bannertxt"> TOBY KILLEN | BELFAST,UK</h1>
+</div>
+<!-- END OF BANNER -->
+
+<!-- BODY OF WEBPAGE -->
+<div class="maincontent" id="maincontent"> 
+
+<h1>CONTACT ME!</h1>
+
+
+
+
+
+<form autocomplete="on" id="mainform" name="mainform" action="../php/form.php" onsubmit="return checkForBlank()" method="post">
+
+<div class="form" id="form">
+    <h2>APPLY FOR MY CV USING THE FORM BELOW.</h2>
+  
+
+<p1> Key: * = Required Fechlds </p1>
+<br>
+<br>
+<label for="fname">First Name:*</label> 
+<input type="text" id="fname" name="fname" placeholder="Your first name." maxlength="11" autofocus required="" >
+<br>
+<br>
+
+<label for="lname">Last Name:*</label>
+<input type="text" id="lname" name="lname" placeholder="Your last name." maxlength="11" required="" >
+<br>
+<br> 
+
+<label for="number">Phone Number:*</label>
+<input type="tel" id="number" name="number" placeholder="Your Phone Number." maxlength="11" required="" >
+<br>
+<br> 
+
+<label for="email">Email:*</label> 
+<input type="email" id="email" name="email" placeholder="Examle@gmail.com" required="">
+<br>
+<br>
+
+<label for="email">Confrim Email:*</label> 
+<input type="email" id="email" name="cemail" placeholder="Examle@gmail.com" required="" >
+<br>
+<br>
+
+<label for="company">Company Name:*</label> 
+<input type="text" id="company" name="company" placeholder="Company Name" required="" >
+<br>
+<br>
+<button id="submit" type="submit" value="Submit">Submit</button> <button id="reset" type="reset" value="Reset">Reset</button>
+
+</div>
+</form>
+<br>
+<br> 
+</div>
+<br>
+<br>
+
+
+
+<!-- END OF BODY -->
+
+<!-- FOOTER -->
+<div class="footer" id="footer"> 
+<hr>
+<a href="..\html\snapchat.html" ><img src="..\image\snapchat.png" class="sc" id="sc" alt=""> </a>
+<a href="https://www.instagram.com/itoby24/?hl=en" ><img src="..\image\instagram.png" class="ig" id="ig" alt=""> </a>
+<a href="https://www.youtube.com/channel/UC9l5JLaOZ-NYKp4NpjfGIDQ?" ><img src="..\image\youtube.png" class="yt" id="yt" alt=""> </a>
+<a href="https://twitter.com/itoby24" ><img src="..\image\twitter.png" class="tweet" id="tweet" alt=""> </a>
+</div>
+
+<h1 id="copyright" class="copyright">DESIGNED AND DEVELOPED BY TOBY KILLEN ™  </h1>
+<script src=""..\php\companyinfo.php> 
+</body>
+<script src="..\js\formcheck.js" async></script>
+</html>
+

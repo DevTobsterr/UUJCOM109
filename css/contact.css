@@ -1,0 +1,176 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Courier; 
+    /* All fonts text elements are the same font for consistency */
+
+}
+/* START OF BANNER */
+#topbar {
+    width: 100%;
+    height: auto; 
+    background-image: url("../image/backimg.jpg");
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+    text-align: center;
+    padding-top: 50px;
+    background-attachment: fixed;
+    -webkit-text-stroke: black;
+    -webkit-text-stroke-width: 2px;
+}
+
+#logo { 
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+    align-content: center;
+}
+
+
+#maincontent { 
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+}
+
+#maintxt { 
+    text-align: center;
+}
+
+#bannertxt {
+    color: white;
+    font-weight: bold;
+    font-size: 300%;
+}
+/* END OF BANNER */
+
+
+
+
+/* START OF NAVIGATIONBAR */
+
+#navbar {
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+ul {
+    list-style-type: none;
+    
+}
+li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    float:left;
+    font-size: 150%;
+}
+li a:hover {
+    background-color: white;
+    color: black;
+}
+/* END OF NAVIGATIONBAR */
+
+h1,h2 {
+    text-align: center;
+    align-content: center;
+}
+
+
+
+
+
+/* START OF FOOTER */
+#footer {
+    background-color: black;
+    align-content: center;
+    text-align: center;
+
+}
+#footer a {
+    font-size: 0;
+    padding:5px;
+}
+
+#footer a img {
+    width: 50px;
+    height: auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+a img:hover {
+    transform: translateY(-5px);
+}
+/* END OF FOOTER */
+
+
+
+/*START OF FORM*/
+
+
+#form {
+    background-color: black;
+    padding:20px;
+    border-width:  5px;
+    border-color: white;
+    border-style: solid;
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+
+}
+
+
+#fname, #lname, #email, #number, #confirmemail,#company, #message, #cemail {
+    width: 100%;
+    border: 2px solid orange;
+    border-radius: 4px;
+    resize: vertical;
+    height: 30px;
+
+}
+
+
+
+button {
+    float: inherit;
+}
+
+/*END OF FORM*/
+#copyright {
+    color: white;
+    font-size: 15px;
+    float: left;
+    padding-left: 15px;
+}
+
+#submit,#reset {
+    width: 20%;
+    margin-top: 5px;
+    align-content: center;
+    height: auto;
+    font-size: 15px;
+    font-family: Courier; 
+    text-decoration: underline;
+}
+
+
+#companyinfo {
+    background-color: black;
+    padding:20px;
+    border-width:  5px;
+    border-color: white;
+    border-style: solid;
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    padding-top:5px;
+    text-decoration: underline;
+}
+
+

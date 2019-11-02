@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>How to include a HTML file and its links using an iframe in a PHP-Nuke module</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating modules"
+HREF="creating-modules.html"><LINK
+REL="PREVIOUS"
+TITLE="How to include a HTML file and its links in a PHP-Nuke module"
+HREF="include-html-file-and-links-in-module.html"><LINK
+REL="NEXT"
+TITLE="How to include a plain text file in a PHP-Nuke module"
+HREF="include-plain-text-file-in-module.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="include-html-file-and-links-in-module.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 21. Creating modules</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="include-plain-text-file-in-module.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INCLUDE-HTML-FILE-AND-LINKS-IN-MODULE-IFRAME"
+>21.7. How to include a HTML file and its links using an iframe in a <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> module</A
+></H1
+><P
+>You can also use an iframe to include an external HTML page in your module. An inline frame (iframe) is a construct which embeds a document into an HTML document so that embedded data is displayed inside a subwindow of the browser's window. This does not mean full inclusion; the two documents are independent, and both them are treated as complete documents, instead of treating one as part of the other (see <A
+HREF="http://www.cs.tut.fi/~jkorpela/html/iframe.html"
+TARGET="_top"
+>Using inline frames (iframe elements) to embed documents into HTML documents</A
+>).</P
+><P
+>Iframes are not supported by all browsers, however they offer a much more comfortable alternative to the solution of <A
+HREF="include-html-file-and-links-in-module.html"
+>Section 21.6</A
+>, since any links of the included HTML page will be shown in the iframe, if they are linked with a relative URL. To include a HTML file and its links in a <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> module, use the following as the index.php file of the module (see <A
+HREF="http://www.nukeforums.com/forums/viewtopic.php?p=58549"
+TARGET="_top"
+>Adding Links To The Main Page (Modules)</A
+> and <A
+HREF="http://www.karakas-online.de/forum/viewtopic.php?t=388"
+TARGET="_top"
+>Make <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> Use "Frame Like target"</A
+>):</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?
+if (!eregi("modules.php", $_SERVER['PHP_SELF'])) {
+  die ("You can't access this file directly...");
+}
+if(!IsSet($mainfile)) { include ("mainfile.php"); }
+$index=0;
+$theme="DeepBlue";
+$go_to_address1="http://www.karakas-online.de/EN-Book/book1.html";
+$go_to_address=rawurldecode($go_to_address1);
+include("header.php");
+OpenTable();
+echo "&#60;center&#62;&#60;h4&#62;&#60;a href=\"index.php\"&#62;Click to close.&#60;/a&#62;&#60;/h4&#62;&#60;/center&#62;";
+echo "&#60;iframe SRC=\"".$go_to_address."\" width=\"100%\" height=\"1200\" 
+framespacing=0 frameborder=no border=0 scrolling=auto&#62;&#60;/iframe&#62;";
+echo "&#60;br&#62;&#60;center&#62;NB. Using iframes!&#60;/center&#62;&#60;br&#62;";
+CloseTable();
+include("footer.php");
+die;
+?&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>You only have to enter the HTTP address of the page to be included in $go_to_address1 and the desired theme in $theme (or, if you want to use whatever theme is currently used, comment the $theme line). Activate the module and you are done (<A
+HREF="include-html-file-and-links-in-module-iframe.html#FIG-IFRAMES"
+>Figure 21-3</A
+>)!</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-IFRAMES"
+></A
+><P
+><B
+>Figure 21-3.    <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> HOWTO included in a module with the help of an iframe.
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/iframes.png"><DIV
+CLASS="CAPTION"
+><P
+>PHP-Nuke HOWTO included in a module with the help of an iframe.</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><DIV
+CLASS="TIP"
+><P
+></P
+><TABLE
+CLASS="TIP"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/tip.png"
+HSPACE="5"
+ALT="Tip"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="MIDDLE"
+><B
+>Include the <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> HOWTO as a module in your <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> site!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>You can include the <A
+HREF="http://www.karakas-online.de/EN-Book/"
+TARGET="_top"
+>PHP-Nuke HOWTO</A
+> in your <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> site as a module using either the method of <A
+HREF="include-html-file-and-links-in-module.html"
+>Section 21.6</A
+> or the method of <A
+HREF="include-html-file-and-links-in-module-iframe.html"
+>Section 21.7</A
+>!</P
+><P
+>To use the method of <A
+HREF="include-html-file-and-links-in-module.html"
+>Section 21.6</A
+>, download the <A
+HREF="http://www.karakas-online.de/EN-Book/EN-Book-Nuke.tar.gz"
+TARGET="_top"
+>PHP-Nuke module version of the <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> HOWTO</A
+> and install it according to the instruction in the accompanying INSTALL file.</P
+><P
+>To use the method of <A
+HREF="include-html-file-and-links-in-module-iframe.html"
+>Section 21.7</A
+>, just make a module with an index.php file exactly as in the example shown there. It will show the starting page of the PHP-HOWTO in an iframe (<A
+HREF="include-html-file-and-links-in-module-iframe.html#FIG-IFRAMES"
+>Figure 21-3</A
+>) and you will be able to navigate its pages without installing anything locally. You have Chris' explicit permission for this.
+<SPAN
+CLASS="INLINEMEDIAOBJECT"
+><IMG
+SRC="./images/icon_smile.png"></SPAN
+> </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Besides browser compatibility issues, the iframe method has also problems when it comes to printing. For more information on iframes, see <A
+HREF="http://www.cs.tut.fi/~jkorpela/html/iframe.html"
+TARGET="_top"
+>Using inline frames (iframe elements) to embed documents into HTML documents</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="include-html-file-and-links-in-module.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="include-plain-text-file-in-module.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to include a HTML file and its links in a <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> module</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to include a plain text file in a <SPAN
+CLASS="APPLICATION"
+>PHP-Nuke</SPAN
+> module</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,24 @@
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: Courier; 
+    /* All fonts text elements are the same font for consistency */
+
+}
+
+#maincontent { 
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    align-content: center;
+    text-align: center;
+}
+
+#scimg { 
+    width: 600px;
+    height: auto;
+    padding-top: 75px;
+
+}
+
